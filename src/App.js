@@ -1,10 +1,9 @@
-import React from 'react';
+import React from 'react'; // sempre precisa disso para usar jsx
+import Main from './components/Main';
+
 import './App.css';
 
+// componente sem estado
 export default function App() {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
+  return <Main/>
 }
