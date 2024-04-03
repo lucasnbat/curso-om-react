@@ -1,0 +1,81 @@
+* npm create-react-app . (cria a aplicação react na mesma pasta)
+* para iniciar o projeto, npm start
+* limpe a config inicial deixando apeans os arquivos index.html (public),
+    App.css, App.js e index.js (src)
+* sempre ao compilar o webpack pega os arquivos e retorna código para
+    o navegador entender e renderizar as imagens
+
+CONFIGS DE LINTING
+
+* Editorconfig:
+  root = true
+
+  [*]
+  indent_style = space
+  indent_size = 2
+  end_of_line = lf
+  charset = utf-8
+  trim_trailing_whitespace = true
+  insert_final_newline = true
+
+* instalando eslint e babel como dep desenvolvimento: npm i eslint
+  babel-eslint --save-dev
+
+* Tenha a extensão do eslint e depois execute npx eslint --init
+
+* adicione parser: 'babel-eslint', antes de parserOptions no arquivo
+gerado pelo eslint
+
+* Adicione isso ao settings.json:
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll": true
+    }
+
+Atualizações sobre as extensões
+
+* eslintrc.js:
+
+  module.exports = {
+    env: {
+      browser: true,
+      es2021: true,
+      jest: true,
+      node: true,
+    },
+    extends: [
+      'eslint:recommended',
+      'plugin:react/recommended',
+      'plugin:react-hooks/recommended',
+      'plugin:prettier/recommended',
+    ],
+    globals: {
+      Atomics: 'readonly',
+      SharedArrayBuffer: 'readonly',
+    },
+    parser: '@babel/eslint-parser',
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+    plugins: ['react', 'prettier', 'react-hooks'],
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+    },
+  };
+
+* .babelrc.json:
+  {
+    "presets": ["@babel/preset-env", "@babel/preset-react"]
+  }
+
+
+
